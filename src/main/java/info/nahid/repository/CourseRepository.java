@@ -1,19 +1,11 @@
 package info.nahid.repository;
 
 import info.nahid.entity.Course;
-import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import javax.persistence.EntityManager;
-
 @Repository
-public class CourseRepository {
+public interface CourseRepository extends JpaRepository<Course, Long> {
 
-    @Autowired
-    EntityManager entityManager;
-
-    public Course findById(long id) {
-        return entityManager.find(Course.class, id);
-    }
 
 }

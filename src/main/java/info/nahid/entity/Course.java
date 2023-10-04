@@ -11,7 +11,7 @@ public class Course {
     @GeneratedValue
     private Long id;
     private String name;
-    protected Course() {
+    public Course() {
 
     }
 
@@ -25,6 +25,10 @@ public class Course {
 
     public void setName(String name) {
         this.name = name;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public Long getId() {

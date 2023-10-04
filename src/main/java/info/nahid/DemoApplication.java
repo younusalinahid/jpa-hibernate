@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import java.util.Optional;
 
 @SpringBootApplication
 public class DemoApplication implements CommandLineRunner {
@@ -23,7 +24,7 @@ public class DemoApplication implements CommandLineRunner {
 
     @Override
     public void run(String... arg0) throws Exception {
-        Course course = repository.findById(10001L);
-        logger.info("Course 1001 -> {}",course);
+        Optional<Course> course = repository.findById(10001L);
+        logger.info("Course 10001 -> {}", course.orElse(null));
     }
 }
