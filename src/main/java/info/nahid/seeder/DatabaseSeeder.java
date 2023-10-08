@@ -10,6 +10,10 @@ import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
+
+import java.util.ArrayList;
+import java.util.List;
+
 @Component
 public class DatabaseSeeder {
 
@@ -26,9 +30,19 @@ public class DatabaseSeeder {
     }
 
     public void seedCourseData() {
-        Course course = new Course();
-        course.setId(10001);
-        course.setName("JPA in 50 Steps");
-        repository.save(course);
+        List<Course> courses = new ArrayList<>();
+
+        Course course1 = new Course();
+        course1.setId(10001);
+        course1.setName("Spring Boot Basics");
+        courses.add(course1);
+
+        Course course2 = new Course();
+        course2.setId(10002);
+        course2.setName("JPA in 50 Steps");
+        courses.add(course2);
+
+        repository.saveAll(courses);
     }
+
 }
