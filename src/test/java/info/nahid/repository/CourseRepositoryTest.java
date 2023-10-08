@@ -12,6 +12,6 @@ public class CourseRepositoryTest {
 
     @Test
     public void findById_basic() {
-        repository.findById(10001L).ifPresent(course -> assertEquals("JPA in 500 Steps", course.getName()));
+        repository.findById(10001L).ifPresent(course -> assertEquals("JPA in 50 Steps", course.getName()));
     }
 }

@@ -5,6 +5,8 @@ import info.nahid.repository.CourseRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.event.ContextClosedEvent;
+import org.springframework.context.event.ContextRefreshedEvent;
+import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
@@ -17,7 +19,7 @@ public class DatabaseSeeder {
     CourseRepository repository;
 
     @EventListener
-    public void seed(ContextClosedEvent event) {
+    public void seed(ContextRefreshedEvent event) {
         logger.info("insert course data");
         seedCourseData();
         logger.info("finish insert course data");
