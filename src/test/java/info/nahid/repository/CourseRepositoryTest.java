@@ -14,4 +14,10 @@ public class CourseRepositoryTest {
     public void findById_basic() {
         repository.findById(10001L).ifPresent(course -> assertEquals("JPA in 50 Steps", course.getName()));
     }
+
+    @Test
+    public void deleteById_basic() {
+        repository.deleteById(10002L);
+        assertFalse(repository.findById(10002L).isPresent());
+    }
 }
