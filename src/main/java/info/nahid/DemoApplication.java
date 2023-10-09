@@ -31,9 +31,18 @@ public class DemoApplication implements CommandLineRunner {
             logger.info("Course -> {}", course);
         }
 
-        Optional<Course> course = repository.findById(10001L);
-        logger.info("Course 10001 -> {}", course.orElse(null));
-        repository.deleteById(10002L);
+        Optional<Course> course1 = repository.findById(10001L);
+        logger.info("Course 10001 -> {}", course1.orElse(null));
+
+        course1.ifPresent(course -> {
+            course.setName("MicroService in 50 steps");
+            repository.save(course);
+            logger.info("Course 10001 updated -> {}", course);
+        });
+
+        repository.deleteById(10003L);
+
+
     }
 
 }

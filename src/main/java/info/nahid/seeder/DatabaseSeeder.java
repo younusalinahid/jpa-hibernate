@@ -4,9 +4,7 @@ import info.nahid.entity.Course;
 import info.nahid.repository.CourseRepository;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.event.ContextClosedEvent;
 import org.springframework.context.event.ContextRefreshedEvent;
-import org.springframework.context.event.ContextStartedEvent;
 import org.springframework.context.event.EventListener;
 import org.springframework.stereotype.Component;
 import org.slf4j.Logger;
@@ -34,13 +32,18 @@ public class DatabaseSeeder {
 
         Course course1 = new Course();
         course1.setId(10001);
-        course1.setName("Spring Boot Basics");
+        course1.setName("JPA in 50 Steps");
         courses.add(course1);
 
         Course course2 = new Course();
         course2.setId(10002);
-        course2.setName("JPA in 50 Steps");
+        course2.setName("Spring boot basics");
         courses.add(course2);
+
+        Course course3 = new Course();
+        course3.setId(10003);
+        course3.setName("Hibernate Fundamentals");
+        courses.add(course3);
 
         repository.saveAll(courses);
     }
