@@ -1,15 +1,27 @@
 package info.nahid.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
+
+import javax.persistence.*;
+import java.sql.Timestamp;
 
 @Entity
+@Table(name = "courses")
 public class Course {
 
     @Id
     private Long id;
     private String name;
+
+    @CreationTimestamp
+    @Column(name = "created_at", updatable = false)
+    private Timestamp createdData;
+
+    @UpdateTimestamp
+    @Column(name = "updated_at", nullable = false)
+    private Timestamp lastUpdateData;
+
     public Course() {
 
     }

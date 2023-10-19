@@ -19,7 +19,6 @@ public class DemoApplication implements CommandLineRunner {
 
     @Autowired
     private CourseRepository repository;
-
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }

@@ -45,6 +45,11 @@ public class DatabaseSeeder {
         course3.setName("Hibernate Fundamentals");
         courses.add(course3);
 
+        Course course4 = new Course();
+        course4.setId(10004);
+        course4.setName("Hibernate Fundamentals");
+        courses.add(course4);
+
         repository.saveAll(courses);
     }
 
