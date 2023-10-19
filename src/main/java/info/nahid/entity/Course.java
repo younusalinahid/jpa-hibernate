@@ -2,14 +2,17 @@ package info.nahid.entity;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
-
 import javax.persistence.*;
 import java.sql.Timestamp;
 
 @Entity
 @Table(name = "courses")
-public class Course {
+@NamedQueries(value = {
+        @NamedQuery(name = "query_get_all_courses", query = "Select c From Course c"),
+        @NamedQuery(name = "query_get_100_Step_courses", query = "Select c From Course c where name like '%100 Steps'")
+})
 
+public class Course {
     @Id
     private Long id;
     private String name;
@@ -19,7 +22,7 @@ public class Course {
     private Timestamp createdData;
 
     @UpdateTimestamp
-    @Column(name = "updated_at", nullable = false)
+    @Column(name = "updated_at")
     private Timestamp lastUpdateData;
 
     public Course() {

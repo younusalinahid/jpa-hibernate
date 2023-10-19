@@ -18,13 +18,13 @@ public class JPQLTest {
 
     @Test
     public void jpql_basic() {
-        List<Course> courses = repository.findAll();
+        List<Course> courses = repository.getAllCourse();
         logger.info("Select c From Course c -> {}", courses);
     }
 
     @Test
     public void jpql_where() {
-        List<Course> courses = repository.findCourseByNameIsLike("%100 Steps");
+        List<Course> courses = repository.getCourse("%100 Steps");
         logger.info("Select c From Course c where name like '%100 Steps' -> {}", courses);
     }
 }
