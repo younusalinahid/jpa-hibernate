@@ -27,4 +27,10 @@ public class JPQLTest {
         List<Course> courses = repository.getCourse("%100 Steps");
         logger.info("Select c From Course c where name like '%100 Steps' -> {}", courses);
     }
+
+    @Test
+    public void native_query_test() {
+        List<Course> courses = repository.getCourseName("%50 Steps");
+        logger.info("Native query : SELECT * FROM course WHERE name LIKE '%50 Steps' -> {}", courses);
+    }
 }
